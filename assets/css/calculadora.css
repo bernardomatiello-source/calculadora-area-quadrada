@@ -1,0 +1,203 @@
+/* =========================================
+   1. RESET BÁSICO E TIPOGRAFIA
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    /* Cor de fundo suave para destacar a calculadora */
+    background-color: #f3f4f6; 
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que ocupe a altura toda da tela */
+}
+
+/* =========================================
+   2. ESTRUTURA DO CONTAINER
+   ========================================= */
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* =========================================
+   3. O "CARTÃO" DA CALCULADORA
+   ========================================= */
+.calc-area {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    width: 100%;
+    max-width: 400px; /* Não deixa ficar gigante em telas grandes */
+    display: flex;
+    flex-direction: column; /* Coloca os elementos um abaixo do outro */
+    gap: 15px; /* Espaço automático entre os inputs e o botão */
+}
+
+/* =========================================
+   4. INPUTS (Entrada de Dados)
+   ========================================= */
+.calc-area input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Efeito ao clicar no input (Focus) */
+.calc-area input[type="number"]:focus {
+    border-color: #4f46e5; /* Cor indigo moderna */
+    background-color: #fefeff;
+}
+
+/* =========================================
+   5. BOTÃO DE CÁLCULO
+   ========================================= */
+#area-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 5px;
+}
+
+#area-button:hover {
+    background-color: #4338ca; /* Fica um pouco mais escuro no hover */
+}
+
+#area-button:active {
+    transform: scale(0.98); /* Efeito tátil de clique (afunda um pouco) */
+}
+
+/* =========================================
+   6. ÁREA DE RESULTADO (A classe solicitada)
+   ========================================= */
+#show-result {
+    margin-top: 10px;
+}
+
+/* A classe que você vai adicionar via JavaScript no parágrafo */
+.result-paragrafer {
+    background-color: #ecfdf5; /* Fundo verde super claro */
+    border-left: 5px solid #10b981; /* Linha de destaque verde na lateral */
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #065f46;
+    text-align: center;
+    margin: 0;
+    animation: fadeInDown 0.4s ease-out; /* Animação suave ao aparecer */
+}
+
+/* Animação para dar um toque "Sênior" na interface */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   7. ATUALIZAÇÃO DO CONTAINER PRINCIPAL
+   ========================================= */
+/* Substitua a regra '.container' anterior por esta: */
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Evita que uma caixa estique a outra */
+    gap: 30px; /* Espaço entre a calculadora e a área de testes */
+    flex-wrap: wrap; /* Em telas menores (celular), joga os testes para baixo */
+}
+
+/* =========================================
+   8. ÁREA DE TESTES (Painel de Desenvolvimento)
+   ========================================= */
+#tests-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Borda tracejada para dar um visual de "área técnica/dev" */
+    border: 2px dashed #cbd5e1; 
+}
+
+/* Botões de Teste (Cores mais neutras para diferenciar do botão principal) */
+#calc-test, #element-test {
+    width: 100%;
+    padding: 12px;
+    background-color: #64748b; /* Cinza azulado técnico */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#calc-test:hover, #element-test:hover {
+    background-color: #475569;
+}
+
+#calc-test:active, #element-test:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   9. RESULTADOS DOS TESTES
+   ========================================= */
+#show-tests {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Courier New', Courier, monospace; /* Fonte com cara de console/log */
+    font-size: 0.9rem;
+}
+
+/* Classes para você usar no JavaScript dependendo se o teste passou ou falhou */
+.test-pass {
+    color: #059669;
+    background-color: #d1fae5;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #059669;
+}
+
+.test-fail {
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #dc2626;
+}
