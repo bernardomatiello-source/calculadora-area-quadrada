@@ -5,6 +5,13 @@ const testElement = document.getElementById('element-test')
 function testarCalculadora(nome, callback) {
     try {
         callback()
+
+        const divTestLength = tests.children
+
+        if(divTestLength.length >= 5) {
+            tests.innerHTML = ''
+        }
+
         const paragrafer = createElement('p')
         paragrafer.setAttribute('class', 'test-paragrafer')
         paragrafer.innerText = `${nome} Passou!`

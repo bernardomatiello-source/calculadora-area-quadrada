@@ -10,10 +10,16 @@ function calculateArea(base, altura) {
 }
 
 function resetResult() {
-    result.removeChild()
+    
 }
 
 function showResult(areaResult) {
+
+    const divResultLength = result.children
+
+    if(divResultLength.length >= 5) {
+        result.innerHTML = ''
+    }
 
     const paragrafer = createElement('p')
     paragrafer.innerText = areaResult.toFixed(2)
